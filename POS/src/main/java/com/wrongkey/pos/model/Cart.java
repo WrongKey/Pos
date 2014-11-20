@@ -69,7 +69,7 @@ public class Cart {
                 result+="  "+code+"          "+item.getQuantity()
                         +"      "+item.getPrice()+"    "+item.calculateTheCost()+"\n";
                 total+=item.calculateTheCost();
-                totalBeforeYouhui+=item.beforeYouhuiCost();
+                totalBeforeYouhui+=item.beforePromotionCost();
             }
             result+="-----------------总计-----------------\n";
             result+="总计金额    优惠前    优惠后    优惠差价\n";

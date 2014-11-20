@@ -20,7 +20,7 @@ public abstract class Item implements Caculate{
         return quantity;
     }
 
-    public float beforeYouhuiCost(){
+    public float beforePromotionCost(){
         return getPrice()*getQuantity();
     }
 
