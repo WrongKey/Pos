@@ -19,5 +19,5 @@ public interface Parser {
      *@return void
      *@date 2014/11/20
      */
-    void parser(BufferedReader in) throws Exception;
+    void parser() throws Exception;
 }

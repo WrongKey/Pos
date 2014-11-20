@@ -9,7 +9,10 @@ package com.wrongkey.pos.model;
  */
 public class RegularItem extends Item {
 
-    public RegularItem() {
+    public RegularItem(String barcode,float price,int quantity) {
+        this.barcode = barcode;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     /**
@@ -22,6 +25,5 @@ public class RegularItem extends Item {
     public float calculateTheCost() {
         return getPrice()*getQuantity();
     }
-
 
 }

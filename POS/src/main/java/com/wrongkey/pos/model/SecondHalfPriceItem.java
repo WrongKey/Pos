@@ -9,6 +9,12 @@ package com.wrongkey.pos.model;
  */
 public class SecondHalfPriceItem extends Item {
 
+    public SecondHalfPriceItem(String barcode,float price,int quantity) {
+        this.barcode = barcode;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     /**
      * @return float
      * @author wrongkey

@@ -1,8 +1,10 @@
 package com.wrongkey.pos.parser;
 
 import java.io.BufferedReader;
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *@author wrongkey
@@ -12,7 +14,10 @@ import java.util.Map;
  *
  */
 public class CartInfoParser implements Parser{
-    private  Map<String,Integer> cart = new HashMap<>();
+    private static final String CART_FILE_PATH =
+            "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\cart.txt";
+
+    private Map<String,Integer> cartInfo = new TreeMap<>();
     /**
      * @param in
      * @return void
@@ -21,7 +26,8 @@ public class CartInfoParser implements Parser{
      * @date 2014/11/20
      */
     @Override
-    public void parser(BufferedReader in) throws Exception {
+    public void parser() throws Exception {
+        BufferedReader in = new BufferedReader(new FileReader(new File(CART_FILE_PATH)));
         String line = null;
         String barcode = null;
         while((line = in.readLine())!=null){
@@ -33,15 +39,15 @@ public class CartInfoParser implements Parser{
             }else{
                 barcode = line;
             }
-            if(cart.containsKey(barcode)){
-                quantity += cart.get(barcode);
-                cart.remove(barcode);
+            if(cartInfo.containsKey(barcode)){
+                quantity += cartInfo.get(barcode);
+                cartInfo.remove(barcode);
             }
-            cart.put(barcode,quantity);
+            cartInfo.put(barcode,quantity);
         }
     }
 
-    public  Map<String, Integer> getCart() {
-        return cart;
+    public Map<String, Integer> getCartInfo(){
+        return cartInfo;
     }
 }

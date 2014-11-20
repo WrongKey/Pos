@@ -33,4 +33,14 @@ public class DiscountItem extends Item {
     public int getDiscount() {
         return discount;
     }
+
+    @Override
+    public int getQuantity() {
+        return getItem().getQuantity();
+    }
+
+    @Override
+    public float getPrice() {
+        return getItem().getPrice();
+    }
 }
