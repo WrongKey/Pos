@@ -30,17 +30,17 @@ public class DiscountItem extends Item {
         return item;
     }
 
-    public int getDiscount() {
+    private int getDiscount() {
         return discount;
     }
 
     @Override
-    public int getQuantity() {
+    protected int getQuantity() {
         return getItem().getQuantity();
     }
 
     @Override
-    public float getPrice() {
+    protected float getPrice() {
         return getItem().getPrice();
     }
 }

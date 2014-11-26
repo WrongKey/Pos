@@ -18,7 +18,7 @@ public class SecondHalfPriceItem extends Item {
     /**
      * @return float
      * @author wrongkey
-     * @description calculate the cost generate Statement(
+     * @description calculate the cost
      * @date 2014/11/20
      */
     @Override

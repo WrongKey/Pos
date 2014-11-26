@@ -9,14 +9,14 @@ package com.wrongkey.pos.model;
  */
 public abstract class Item implements Caculate{
 
-    protected String barcode; //item's barcode
-    protected float price;    //item's price
-    protected int quantity;   //item's quantity
+    protected String barcode;
+    protected float price;
+    protected int quantity;
 
-    public float getPrice() {
+    protected float getPrice() {
         return price;
     }
-    public int getQuantity() {
+    protected int getQuantity() {
         return quantity;
     }
 
