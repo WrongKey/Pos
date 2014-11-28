@@ -1,11 +1,10 @@
 package com.wrongkey.pos.parser;
 
 /**
- *@author wrongkey
- *@description second_half_price item parse
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description second_half_price item parse
+ * @date 2014/11/20
  */
 public class SecondHalfPriceItemParse extends Parse {
     /**

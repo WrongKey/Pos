@@ -6,11 +6,10 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- *@author wrongkey
- *@description 把解析出来的信息转换成对象
- *@date 2014/11/28
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description 把解析出来的信息转换成对象
+ * @date 2014/11/28
  */
 public class ConvertToItem {
     private static final String CARTINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\cart.txt";
@@ -39,13 +38,13 @@ public class ConvertToItem {
     }
 
     /**
-     *@author wrongkey
-     *@description convert info to Item
-     *@param [info]
-     *@return com.wrongkey.pos.model.Item
-     *@date 2014/11/28
+     * @param [info]
+     * @return com.wrongkey.pos.model.Item
+     * @author wrongkey
+     * @description convert info to Item
+     * @date 2014/11/28
      */
-    public static Item convertItem(Pair info){
+    public static Item convertItem(Pair info) {
         String barcode = info.getKey();
         Item item = new RegularItem(barcode, getInfoByBarcode(barcode, regularItemInfo), info.getValue());
         if (secondHalfPriceInfo.contains(barcode)) {

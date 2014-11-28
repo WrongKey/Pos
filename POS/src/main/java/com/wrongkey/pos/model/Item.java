@@ -1,13 +1,12 @@
 package com.wrongkey.pos.model;
 
 /**
- *@author wrongkey
- *@description calculate the cost
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description calculate the cost
+ * @date 2014/11/20
  */
-public abstract class Item implements Caculate{
+public abstract class Item implements Caculate {
 
     protected String barcode;
     protected int price;
@@ -16,27 +15,25 @@ public abstract class Item implements Caculate{
     protected int getPrice() {
         return price;
     }
+
     protected int getQuantity() {
         return quantity;
     }
-    protected String getBarcode(){
+
+    protected String getBarcode() {
         return barcode;
     }
-    public Item add(Item item){
+
+    public Item add(Item item) {
         setQuantity(getQuantity() + item.getQuantity());
         return this;
     }
 
-    protected void setQuantity(int quantity){
+    protected void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public int beforePromotionCost(){
-        return getPrice()*getQuantity();
-    }
-
-    @Override
-    public String toString() {
-        return "barcode:"+getBarcode()+"    price: "+getPrice()+"   quantity: "+getQuantity();
+    public int beforePromotionCost() {
+        return getPrice() * getQuantity();
     }
 }

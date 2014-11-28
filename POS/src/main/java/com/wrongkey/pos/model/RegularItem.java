@@ -1,15 +1,14 @@
 package com.wrongkey.pos.model;
 
 /**
- *@author wrongkey
- *@description RegularItem
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description RegularItem
+ * @date 2014/11/20
  */
 public class RegularItem extends Item {
 
-    public RegularItem(String barcode,int price,int quantity) {
+    public RegularItem(String barcode, int price, int quantity) {
         this.barcode = barcode;
         this.price = price;
         this.quantity = quantity;
@@ -23,7 +22,7 @@ public class RegularItem extends Item {
      */
     @Override
     public int calculateTheCost() {
-        return getPrice()*getQuantity();
+        return getPrice() * getQuantity();
     }
 
 }

@@ -1,10 +1,10 @@
 package com.wrongkey.pos.model;
+
 /**
- *@author wrongkey
- *@description discount promotion item
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description discount promotion item
+ * @date 2014/11/20
  */
 public class DiscountItem extends Item {
     private Item item;
@@ -23,7 +23,7 @@ public class DiscountItem extends Item {
      */
     @Override
     public int calculateTheCost() {
-        return getItem().calculateTheCost()*getDiscount()/100;
+        return getItem().calculateTheCost() * getDiscount() / 100;
     }
 
     public Item getItem() {
@@ -44,17 +44,12 @@ public class DiscountItem extends Item {
         return getItem().getPrice();
     }
 
-    protected String getBarcode(){
+    protected String getBarcode() {
         return getItem().getBarcode();
     }
 
     @Override
     protected void setQuantity(int quantity) {
         getItem().setQuantity(quantity);
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()+"   discount: "+discount;
     }
 }

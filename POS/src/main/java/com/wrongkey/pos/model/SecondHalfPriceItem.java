@@ -1,11 +1,10 @@
 package com.wrongkey.pos.model;
 
 /**
- *@author wrongkey
- *@description second half price promotion item
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description second half price promotion item
+ * @date 2014/11/20
  */
 public class SecondHalfPriceItem extends Item {
     private Item item;
@@ -13,7 +12,8 @@ public class SecondHalfPriceItem extends Item {
     public SecondHalfPriceItem(Item item) {
         this.item = item;
     }
-    private Item getItem(){
+
+    private Item getItem() {
         return item;
     }
 
@@ -22,11 +22,11 @@ public class SecondHalfPriceItem extends Item {
         return getItem().getBarcode();
     }
 
-    protected int getPrice(){
+    protected int getPrice() {
         return getItem().getPrice();
     }
 
-    protected int getQuantity(){
+    protected int getQuantity() {
         return getItem().getQuantity();
     }
 
@@ -43,6 +43,6 @@ public class SecondHalfPriceItem extends Item {
      */
     @Override
     public int calculateTheCost() {
-        return (getPrice()+getPrice()/2)*(getQuantity()/2) +(getQuantity()%2)*getPrice();
+        return (getPrice() + getPrice() / 2) * (getQuantity() / 2) + (getQuantity() % 2) * getPrice();
     }
 }

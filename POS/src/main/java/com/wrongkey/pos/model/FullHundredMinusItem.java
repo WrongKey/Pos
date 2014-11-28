@@ -10,7 +10,7 @@ public class FullHundredMinusItem extends Item {
     private Item item;
     private int decrease;
 
-    public FullHundredMinusItem(int decrease,Item item) {
+    public FullHundredMinusItem(int decrease, Item item) {
         this.item = item;
         this.decrease = decrease;
     }
@@ -23,7 +23,7 @@ public class FullHundredMinusItem extends Item {
         return decrease;
     }
 
-    protected int getQuantity(){
+    protected int getQuantity() {
         return getItem().getQuantity();
     }
 
@@ -37,9 +37,10 @@ public class FullHundredMinusItem extends Item {
         return getItem().getPrice();
     }
 
-    protected String getBarcode(){
+    protected String getBarcode() {
         return getItem().getBarcode();
     }
+
     /**
      * @return int
      * @author wrongkey
@@ -50,10 +51,5 @@ public class FullHundredMinusItem extends Item {
     public int calculateTheCost() {
         return getItem().calculateTheCost() -
                 getItem().calculateTheCost() / 100 * getDecrease();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString()+"   decrease: "+decrease;
     }
 }

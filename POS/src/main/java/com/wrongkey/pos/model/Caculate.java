@@ -1,20 +1,19 @@
 package com.wrongkey.pos.model;
 
 /**
- *@author wrongkey
- *@description Caculate
- *@date 2014/11/20
- *@version v1.0
- *
+ * @author wrongkey
+ * @version v1.0
+ * @description Caculate
+ * @date 2014/11/20
  */
-public interface Caculate{
+public interface Caculate {
 
     /**
-     *@author wrongkey
-     *@description calculate the cost
-     *@param []
-     *@return int
-     *@date 2014/11/20
+     * @param []
+     * @return int
+     * @author wrongkey
+     * @description calculate the cost
+     * @date 2014/11/20
      */
     int calculateTheCost();
 }
