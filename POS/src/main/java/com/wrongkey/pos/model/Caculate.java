@@ -13,8 +13,8 @@ public interface Caculate{
      *@author wrongkey
      *@description calculate the cost
      *@param []
-     *@return float
+     *@return int
      *@date 2014/11/20
      */
-    float calculateTheCost();
+    int calculateTheCost();
 }

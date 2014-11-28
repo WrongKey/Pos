@@ -8,21 +8,41 @@ package com.wrongkey.pos.model;
  *
  */
 public class SecondHalfPriceItem extends Item {
+    private Item item;
 
-    public SecondHalfPriceItem(String barcode,float price,int quantity) {
-        this.barcode = barcode;
-        this.price = price;
-        this.quantity = quantity;
+    public SecondHalfPriceItem(Item item) {
+        this.item = item;
+    }
+    private Item getItem(){
+        return item;
+    }
+
+    @Override
+    protected String getBarcode() {
+        return getItem().getBarcode();
+    }
+
+    protected int getPrice(){
+        return getItem().getPrice();
+    }
+
+    protected int getQuantity(){
+        return getItem().getQuantity();
+    }
+
+    @Override
+    protected void setQuantity(int quantity) {
+        getItem().setQuantity(quantity);
     }
 
     /**
-     * @return float
+     * @return int
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
     @Override
-    public float calculateTheCost() {
-        return getPrice()*1.5f*(getQuantity()/2) +(getQuantity()%2)*getPrice();
+    public int calculateTheCost() {
+        return (getPrice()+getPrice()/2)*(getQuantity()/2) +(getQuantity()%2)*getPrice();
     }
 }

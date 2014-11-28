@@ -10,18 +10,33 @@ package com.wrongkey.pos.model;
 public abstract class Item implements Caculate{
 
     protected String barcode;
-    protected float price;
+    protected int price;
     protected int quantity;
 
-    protected float getPrice() {
+    protected int getPrice() {
         return price;
     }
     protected int getQuantity() {
         return quantity;
     }
+    protected String getBarcode(){
+        return barcode;
+    }
+    public Item add(Item item){
+        setQuantity(getQuantity() + item.getQuantity());
+        return this;
+    }
 
-    public float beforePromotionCost(){
+    protected void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public int beforePromotionCost(){
         return getPrice()*getQuantity();
     }
 
+    @Override
+    public String toString() {
+        return "barcode:"+getBarcode()+"    price: "+getPrice()+"   quantity: "+getQuantity();
+    }
 }

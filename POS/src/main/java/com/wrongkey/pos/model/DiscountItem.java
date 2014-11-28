@@ -16,14 +16,14 @@ public class DiscountItem extends Item {
     }
 
     /**
-     * @return float
+     * @return int
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
     @Override
-    public float calculateTheCost() {
-        return getItem().calculateTheCost()*getDiscount()/100f;
+    public int calculateTheCost() {
+        return getItem().calculateTheCost()*getDiscount()/100;
     }
 
     public Item getItem() {
@@ -40,7 +40,21 @@ public class DiscountItem extends Item {
     }
 
     @Override
-    protected float getPrice() {
+    protected int getPrice() {
         return getItem().getPrice();
+    }
+
+    protected String getBarcode(){
+        return getItem().getBarcode();
+    }
+
+    @Override
+    protected void setQuantity(int quantity) {
+        getItem().setQuantity(quantity);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"   discount: "+discount;
     }
 }
