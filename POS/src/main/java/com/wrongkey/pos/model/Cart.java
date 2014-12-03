@@ -1,8 +1,6 @@
 package com.wrongkey.pos.model;
 
 import com.wrongkey.pos.parser.*;
-
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -12,7 +10,7 @@ import java.util.*;
  * @date 2014/11/20
  */
 public class Cart {
-    private static Map<String, Item> cart = new TreeMap<>();
+    private  Map<String, Item> cart = new TreeMap<>();
 
     /**
      * @param []
@@ -21,9 +19,8 @@ public class Cart {
      * @description generate cart
      * @date 2014/11/20
      */
-    public static void generateCart() throws Exception {
+    public void generateCart() throws Exception {
         Iterator<Pair> iterator = ConvertToItem.getCartInfo().iterator();
-        String barcode = null;
         Pair info = null;
         while (iterator.hasNext()) {
             info = iterator.next();
@@ -45,7 +42,7 @@ public class Cart {
      * @description generate statement
      * @date 2014/11/20
      */
-    public static String generateStatement() {
+    public String generateStatement() {
         String result = "";
         int total = 0;
         int totalBeforeDiscount = 0;
@@ -73,7 +70,7 @@ public class Cart {
      * @description 新的优惠，总消费满100减5元
      * @date 2014/11/28
      */
-    protected static int totalCostFullHundredMinus(int total, int decrease) {
+    protected int totalCostFullHundredMinus(int total, int decrease) {
         return total - total / 100 * decrease;
     }
 }
