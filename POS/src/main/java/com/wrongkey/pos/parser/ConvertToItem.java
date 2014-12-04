@@ -12,13 +12,13 @@ import java.util.List;
  * @date 2014/11/28
  */
 public class ConvertToItem {
-    private static final String CARTINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\cart.txt";
+
     private static final String DISCINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\discount_promotion.txt";
     private static final String ITEMINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\itemlist.txt";
     private static final String FULL_HUNDRED_MINUS_INFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\full_hundred_minus.txt";
     private static final String SECOND_HALF_PRICE_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\second_half_price_promotion.txt";
 
-    private static List<Pair> cartInfo;
+
     private static List<Pair> regularItemInfo;
     private static List<Pair> discountItemInfo;
     private static List<Pair> fullHundredMinusInfo;
@@ -26,7 +26,6 @@ public class ConvertToItem {
 
     static {
         try {
-            cartInfo = new CartInfoParse().parse(CARTINFO_PATH);
             regularItemInfo = new RegularItemParse().parse(ITEMINFO_PATH);
             discountItemInfo = new DiscountItemParse().parse(DISCINFO_PATH);
             fullHundredMinusInfo = new FullHundredMinusParse().parse(FULL_HUNDRED_MINUS_INFO_PATH);
@@ -56,7 +55,6 @@ public class ConvertToItem {
         if (containBarcode(barcode, fullHundredMinusInfo)) {
             item = new FullHundredMinusItem(getInfoByBarcode(barcode, fullHundredMinusInfo), item);
         }
-
         return item;
     }
 
@@ -89,10 +87,6 @@ public class ConvertToItem {
                 return pair.getValue();
         }
         return -1;
-    }
-
-    public static List<Pair> getCartInfo() {
-        return cartInfo;
     }
 }
 

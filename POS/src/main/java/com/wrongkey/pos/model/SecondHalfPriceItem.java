@@ -13,36 +13,29 @@ public class SecondHalfPriceItem extends Item {
         this.item = item;
     }
 
-    private Item getItem() {
-        return item;
-    }
-
-    @Override
-    protected String getBarcode() {
-        return getItem().getBarcode();
-    }
-
-    protected int getPrice() {
-        return getItem().getPrice();
-    }
-
-    protected int getQuantity() {
-        return getItem().getQuantity();
-    }
-
     @Override
     protected void setQuantity(int quantity) {
-        getItem().setQuantity(quantity);
+        item.setQuantity(quantity);
     }
 
     /**
-     * @return int
+     * @return float
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
     @Override
-    public int calculateTheCost() {
-        return (getPrice() + getPrice() / 2) * (getQuantity() / 2) + (getQuantity() % 2) * getPrice();
+    public float calculateTheCost() {
+        return getPrice()*getQuantity()-(getPrice()/2)*(getQuantity()/2);
+    }
+
+    @Override
+    protected float getPrice() {
+        return item.getPrice();
+    }
+
+    @Override
+    protected int getQuantity() {
+        return item.getQuantity();
     }
 }

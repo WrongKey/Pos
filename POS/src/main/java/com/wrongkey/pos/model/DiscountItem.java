@@ -10,46 +10,35 @@ public class DiscountItem extends Item {
     private Item item;
     private int discount;
 
-    public DiscountItem(int discount, Item item) {
+    public DiscountItem( int discount,Item item) {
         this.discount = discount;
         this.item = item;
     }
 
+    @Override
+    protected void setQuantity(int quantity) {
+        item.setQuantity(quantity);
+    }
+
+    @Override
+    protected float getPrice() {
+        return item.getPrice();
+    }
+
+    @Override
+    protected int getQuantity() {
+        return item.getQuantity();
+    }
+
     /**
-     * @return int
+     * @return float
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
     @Override
-    public int calculateTheCost() {
-        return getItem().calculateTheCost() * getDiscount() / 100;
+    public float calculateTheCost() {
+        return item.calculateTheCost()*discount/100;
     }
 
-    public Item getItem() {
-        return item;
-    }
-
-    private int getDiscount() {
-        return discount;
-    }
-
-    @Override
-    protected int getQuantity() {
-        return getItem().getQuantity();
-    }
-
-    @Override
-    protected int getPrice() {
-        return getItem().getPrice();
-    }
-
-    protected String getBarcode() {
-        return getItem().getBarcode();
-    }
-
-    @Override
-    protected void setQuantity(int quantity) {
-        getItem().setQuantity(quantity);
-    }
 }

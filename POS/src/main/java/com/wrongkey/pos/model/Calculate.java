@@ -3,17 +3,17 @@ package com.wrongkey.pos.model;
 /**
  * @author wrongkey
  * @version v1.0
- * @description Caculate
+ * @description Calculate
  * @date 2014/11/20
  */
-public interface Caculate {
+public interface Calculate {
 
     /**
-     * @param []
-     * @return int
+     * @return float
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
-    int calculateTheCost();
+    float calculateTheCost();
+
 }

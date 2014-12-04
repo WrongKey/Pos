@@ -6,34 +6,20 @@ package com.wrongkey.pos.model;
  * @description calculate the cost
  * @date 2014/11/20
  */
-public abstract class Item implements Caculate {
+public abstract class Item implements Calculate {
 
-    protected String barcode;
-    protected int price;
-    protected int quantity;
+    protected abstract float getPrice();
+    protected abstract int getQuantity();
 
-    protected int getPrice() {
-        return price;
-    }
+    protected abstract void setQuantity(int quantity);
 
-    protected int getQuantity() {
-        return quantity;
-    }
-
-    protected String getBarcode() {
-        return barcode;
-    }
-
-    public Item add(Item item) {
-        setQuantity(getQuantity() + item.getQuantity());
+    public Item add(Item item){
+        this.setQuantity(this.getQuantity()+item.getQuantity());
         return this;
     }
 
-    protected void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int beforePromotionCost() {
-        return getPrice() * getQuantity();
+    public float beforePromotionCost() {
+        return getQuantity()*getPrice();
     }
 }
+

@@ -7,22 +7,38 @@ package com.wrongkey.pos.model;
  * @date 2014/11/20
  */
 public class RegularItem extends Item {
+    private String barcode;
+    private float price;
+    private int quantity;
 
-    public RegularItem(String barcode, int price, int quantity) {
+    public RegularItem(String barcode, float price, int quantity) {
         this.barcode = barcode;
         this.price = price;
         this.quantity = quantity;
     }
 
+    protected float getPrice() {
+        return price;
+    }
+
+    protected int getQuantity() {
+        return quantity;
+    }
+
+    @Override
+    protected void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     /**
-     * @return int
+     * @return float
      * @author wrongkey
      * @description calculate the cost
      * @date 2014/11/20
      */
     @Override
-    public int calculateTheCost() {
-        return getPrice() * getQuantity();
+    public float calculateTheCost() {
+        return getPrice()*getQuantity();
     }
 
 }

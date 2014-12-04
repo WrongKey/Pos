@@ -1,6 +1,8 @@
 package com.wrongkey.pos.model;
 
 import com.wrongkey.pos.parser.*;
+
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -10,8 +12,19 @@ import java.util.*;
  * @date 2014/11/20
  */
 public class Cart {
+    private static final String CARTINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\cart.txt";
+    private static List<Pair> cartInfo;
+
     private  Map<String, Item> cart = new TreeMap<>();
 
+    static{
+        try {
+            cartInfo = new CartInfoParse().parse(CARTINFO_PATH);
+        } catch (IOException e) {
+            System.out.println("解析购物车信息失败");
+            e.printStackTrace();
+        }
+    }
     /**
      * @param []
      * @return void
@@ -20,7 +33,7 @@ public class Cart {
      * @date 2014/11/20
      */
     public void generateCart() throws Exception {
-        Iterator<Pair> iterator = ConvertToItem.getCartInfo().iterator();
+        Iterator<Pair> iterator = cartInfo.iterator();
         Pair info = null;
         while (iterator.hasNext()) {
             info = iterator.next();
@@ -44,13 +57,13 @@ public class Cart {
      */
     public String generateStatement() {
         String result = "";
-        int total = 0;
-        int totalBeforeDiscount = 0;
+        float total = 0;
+        float totalBeforeDiscount = 0;
         result += "购物明细         数量     单 价    小 计\n";
         for (String code : cart.keySet()) {
             Item item = cart.get(code);
             result += "  " + (code.toLowerCase().replaceAll("0", "")) + "           " + item.getQuantity()
-                    + "        " + item.getPrice() + "      " + item.calculateTheCost() + "\n";
+                    + "      " + item.getPrice() + "    " + item.calculateTheCost() + "\n";
             total += item.calculateTheCost();
             totalBeforeDiscount += item.beforePromotionCost();
         }
@@ -58,8 +71,8 @@ public class Cart {
         result += "-------新的优惠，总消费满100减5元-------\n\n";
         total = totalCostFullHundredMinus(total, 5);
         result += "总计金额    优惠前    优惠后    优惠差价\n";
-        result += "    " + total + "      " + totalBeforeDiscount
-                + "       " + total + "       " + (totalBeforeDiscount - total);
+        result += "  " + total + "     " + totalBeforeDiscount
+                + "    " + total + "     " + (totalBeforeDiscount - total);
         return result;
     }
 
@@ -70,7 +83,7 @@ public class Cart {
      * @description 新的优惠，总消费满100减5元
      * @date 2014/11/28
      */
-    protected int totalCostFullHundredMinus(int total, int decrease) {
-        return total - total / 100 * decrease;
+    protected float totalCostFullHundredMinus(float total, int decrease) {
+        return total - (int)total / 100 * decrease;
     }
 }
