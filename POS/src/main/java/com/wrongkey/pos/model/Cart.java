@@ -84,9 +84,8 @@ public class Cart {
             total += item.calculateTheCost();
             totalBeforeDiscount += item.beforePromotionCost();
         }
-        String result = "\n-----------------总计-----------------\n-------新的优惠，总消费满100减5元-------\n\n";
+        String result = "\n-----------------总计-----------------\n-------新的优惠，总消费满100减5元-------\n\n总计金额    优惠前    优惠后    优惠差价\n";
         total = totalCostFullHundredMinus(total, 5);
-        result += "总计金额    优惠前    优惠后    优惠差价\n";
         result += "  " + total + "     " + totalBeforeDiscount + "    " + total + "     " + (totalBeforeDiscount - total);
         return result;
     }
