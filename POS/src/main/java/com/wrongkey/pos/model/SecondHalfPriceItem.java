@@ -38,4 +38,9 @@ public class SecondHalfPriceItem extends Item {
     protected int getQuantity() {
         return item.getQuantity();
     }
+
+    @Override
+    protected String getBarcode() {
+        return item.getBarcode();
+    }
 }

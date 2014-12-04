@@ -10,6 +10,7 @@ public abstract class Item implements Calculate {
 
     protected abstract float getPrice();
     protected abstract int getQuantity();
+    protected abstract String getBarcode();
 
     protected abstract void setQuantity(int quantity);
 
@@ -20,6 +21,12 @@ public abstract class Item implements Calculate {
 
     public float beforePromotionCost() {
         return getQuantity()*getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return "  " + (getBarcode().toLowerCase().replaceAll("0", "")) + "           " + getQuantity()
+                + "      " + getPrice() + "    " + calculateTheCost()+"\n";
     }
 }
 

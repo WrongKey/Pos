@@ -15,31 +15,29 @@ public class RegularItemTest{
     @Before
     public void setUp(){
         barcode = "ITEM0001";
-        price = 50;
+        price = 40;
         quantity = 5;
-        item = new RegularItem(barcode,50,5);
+        item = new RegularItem(barcode,price,quantity);
     }
 
-    @Test
-    public void should_get_price_which_price_in_set_up(){
-        assertEquals(price,item.getPrice());
-    }
-
-    @Test
-    public void should_get_quantity_which_quantity_in_set_up(){
-        assertEquals(quantity,item.getQuantity());
-    }
-
+    //测试RegularItem的calculateTheCost方法
     @Test
     public void should_return_quantity_multiplied_by_price_when_calculate_regular_cost(){
         assertEquals(quantity*price,item.calculateTheCost());
     }
 
+    //测试RegularItem的toString方法
     @Test
-    public void should_set_new_quantity_when_set_quantity(){
-        quantity = 6;
-        item.setQuantity(6);
-        assertEquals(6,item.getQuantity());
+    public void should_return_item_info_string_when_to_string(){
+        String expected = "  item1           5      40.0    200.0\n";
+        assertEquals(expected,item.toString());
     }
 
+    //测试RegularItem的add方法,两个RegularItem相加，得到一个新的RegularItem
+    // 新RegularItem的quantity等于原来两个quantity的和
+    @Test
+    public void should_return_RegularItem_which_quantity_changed_when_item_add_another_item(){
+        int expectedQuantity = 10;
+        assertEquals(expectedQuantity,item.add(item).getQuantity());
+    }
 }

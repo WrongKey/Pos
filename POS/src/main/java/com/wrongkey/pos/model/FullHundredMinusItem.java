@@ -30,6 +30,11 @@ public class FullHundredMinusItem extends Item {
         return item.getQuantity();
     }
 
+    @Override
+    protected String getBarcode() {
+        return item.getBarcode();
+    }
+
     /**
      * @return float
      * @author wrongkey

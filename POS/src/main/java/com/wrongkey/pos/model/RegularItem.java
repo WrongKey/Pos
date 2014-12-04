@@ -26,6 +26,11 @@ public class RegularItem extends Item {
     }
 
     @Override
+    protected String getBarcode() {
+        return barcode;
+    }
+
+    @Override
     protected void setQuantity(int quantity) {
         this.quantity = quantity;
     }
@@ -40,5 +45,6 @@ public class RegularItem extends Item {
     public float calculateTheCost() {
         return getPrice()*getQuantity();
     }
+
 
 }
