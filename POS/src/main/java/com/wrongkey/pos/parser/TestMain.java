@@ -1,6 +1,7 @@
 package com.wrongkey.pos.parser;
 
 import com.wrongkey.pos.model.Cart;
+import com.wrongkey.pos.model.CartStatement;
 
 import java.util.List;
 
@@ -13,7 +14,9 @@ public class TestMain {
         List<Pair> cartInfo = new CartInfoParse().parse(CARTINFO_PATH);
 
         Cart cart = new Cart();
-        cart.generateCart(cartInfo);
-        System.out.println(cart.generateStatement());
+        cart.initCart(cartInfo);
+        CartStatement cartStatement = new CartStatement(cart);
+        System.out.println(cartStatement.generateStatement());
     }
+
 }

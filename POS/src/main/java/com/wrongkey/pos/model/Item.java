@@ -15,6 +15,9 @@ public abstract class Item implements Calculate {
     protected abstract void setQuantity(int quantity);
 
     public Item add(Item item){
+        if(!this.getBarcode().equals(item.getBarcode())){
+            throw new ItemAddtionException("条码不同，不能加总...");
+        }
         this.setQuantity(this.getQuantity()+item.getQuantity());
         return this;
     }

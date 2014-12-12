@@ -43,7 +43,7 @@ public class ConvertToItem {
      * @description convert info to Item
      * @date 2014/11/28
      */
-    public static Item convertItem(Pair info) {
+    public Item convertItem(Pair info) {
         String barcode = info.getKey();
         Item item = new RegularItem(barcode, getInfoByBarcode(barcode, regularItemInfo), info.getValue());
         if (secondHalfPriceInfo.contains(barcode)) {
@@ -65,7 +65,7 @@ public class ConvertToItem {
      * @description check barcode exist in list
      * @date 2014/11/28
      */
-    private static boolean containBarcode(String barcode, List<Pair> list) {
+    private boolean containBarcode(String barcode, List<Pair> list) {
         for (Pair pair : list) {
             if (pair.getKey().equals(barcode))
                 return true;
@@ -81,7 +81,7 @@ public class ConvertToItem {
      * @description get price_info or discount_info by barcode from regularItemInfo
      * @date 2014/11/28
      */
-    private static int getInfoByBarcode(String barcode, List<Pair> list) {
+    private int getInfoByBarcode(String barcode, List<Pair> list) {
         for (Pair pair : list) {
             if (pair.getKey().equals(barcode))
                 return pair.getValue();
