@@ -10,9 +10,8 @@ import java.util.List;
  */
 public class TestMain {
     public static void main(String[] args) throws Exception{
-        String CARTINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\cart.txt";
+        String CARTINFO_PATH = "/home/wrongkey/IdeaProjects/Pos/POS/src/main/resources/com.wrongkey.pos/cart.txt";
         List<Pair> cartInfo = new CartInfoParse().parse(CARTINFO_PATH);
-
         Cart cart = new Cart();
         cart.initCart(cartInfo);
         CartStatement cartStatement = new CartStatement(cart);

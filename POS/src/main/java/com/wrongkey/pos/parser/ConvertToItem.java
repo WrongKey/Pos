@@ -13,10 +13,10 @@ import java.util.List;
  */
 public class ConvertToItem {
 
-    private static final String DISCINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\discount_promotion.txt";
-    private static final String ITEMINFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\itemlist.txt";
-    private static final String FULL_HUNDRED_MINUS_INFO_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\full_hundred_minus.txt";
-    private static final String SECOND_HALF_PRICE_PATH = "G:\\ThoughtWorks\\POS\\src\\main\\resources\\com.wrongkey.pos\\second_half_price_promotion.txt";
+    private static final String DISCINFO_PATH = "/home/wrongkey/IdeaProjects/Pos/POS/src/main/resources/com.wrongkey.pos/discount_promotion.txt";
+    private static final String ITEMINFO_PATH = "/home/wrongkey/IdeaProjects/Pos/POS/src/main/resources/com.wrongkey.pos/itemlist.txt";
+    private static final String FULL_HUNDRED_MINUS_INFO_PATH = "/home/wrongkey/IdeaProjects/Pos/POS/src/main/resources/com.wrongkey.pos/full_hundred_minus.txt";
+    private static final String SECOND_HALF_PRICE_PATH = "/home/wrongkey/IdeaProjects/Pos/POS/src/main/resources/com.wrongkey.pos/second_half_price_promotion.txt";
 
 
     private static List<Pair> regularItemInfo;
